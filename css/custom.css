@@ -1,0 +1,16 @@
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -60px; /* harus sama dengan tinggi footer */
+  padding-bottom: 60px;
+}
+
+.footer {
+  height: 60px;
+  line-height: 20px;
+  padding: 20px 0;
+  background-color: #337ab7;
+}
