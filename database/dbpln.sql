@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2025 at 05:52 PM
+-- Generation Time: Nov 29, 2025 at 05:51 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -49,6 +49,13 @@ CREATE TABLE `pelanggan` (
   `id_tarif` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `pelanggan`
+--
+
+INSERT INTO `pelanggan` (`id_pelanggan`, `no_meter`, `nama`, `alamat`, `tenggang`, `id_tarif`) VALUES
+('20250805091905', '216250820905', 'bayu', 'JAkarta', '05', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +77,13 @@ CREATE TABLE `pembayaran` (
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_pembayaran`, `id_pelanggan`, `tgl_bayar`, `waktu_bayar`, `bulan_bayar`, `tahun_bayar`, `jumlah_bayar`, `biaya_admin`, `total_akhir`, `bayar`, `kembali`, `id_user`) VALUES
+('BYR202508050001', '20250805091905', '2025-08-05', '2025-08-05 02:21:17', '08', '2025', 100000, 2500, 102500, 102500, 0, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -86,6 +100,14 @@ CREATE TABLE `penggunaan` (
   `tgl_cek` date NOT NULL,
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `penggunaan`
+--
+
+INSERT INTO `penggunaan` (`id_penggunaan`, `id_pelanggan`, `bulan`, `tahun`, `meter_awal`, `meter_akhir`, `tgl_cek`, `id_user`) VALUES
+('20250805091905082025', '20250805091905', '08', '2025', 0, 500, '2025-08-05', 1),
+('20250805091905092025', '20250805091905', '09', '2025', 500, 0, '2025-08-05', 1);
 
 -- --------------------------------------------------------
 
@@ -194,7 +216,8 @@ CREATE TABLE `tagihan` (
 INSERT INTO `tagihan` (`id_tagihan`, `id_pelanggan`, `bulan`, `tahun`, `jumlah_meter`, `tarif_perkwh`, `jumlah_bayar`, `status`, `id_user`) VALUES
 (91, '20250803221436', '', '0000', 400, 500, 200000, 'Belum Bayar', NULL),
 (92, '20250803222303', '08', '2025', 400, 500, 200000, 'Terbayar', NULL),
-(93, '20250803222303', '09', '2025', 400, 500, 200000, 'Terbayar', NULL);
+(93, '20250803222303', '09', '2025', 400, 500, 200000, 'Terbayar', NULL),
+(94, '20250805091905', '08', '2025', 500, 200, 100000, 'Terbayar', 1);
 
 -- --------------------------------------------------------
 
@@ -209,6 +232,18 @@ CREATE TABLE `tarif` (
   `daya` varchar(10) NOT NULL,
   `tarif_perkwh` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `tarif`
+--
+
+INSERT INTO `tarif` (`id_tarif`, `kode_tarif`, `golongan`, `daya`, `tarif_perkwh`) VALUES
+(1, 'R1/450VA', 'R1', '450VA', 200),
+(2, 'R1/900VA', 'R1', '900VA', 400),
+(3, 'R1/1300VA', 'R1', '1300VA', 600),
+(4, 'R1/2200VA', 'R1', '2200VA', 800),
+(5, 'R1/3500VA', 'R1', '3500VA', 1000),
+(6, 'R2/450VA', 'R2', '450VA', 400);
 
 -- --------------------------------------------------------
 
@@ -234,7 +269,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `nama_lengkap`, `role_id`, `no_telepon`, `alamat`, `jk`, `biaya_admin`) VALUES
 (1, 'petugas', '12345', 'Angga Petugas', 1, '085157062224', 'Jakarta', 'Laki-laki', 0),
-(2, 'agen', '12345', 'Bayu Agen', 2, '085163192012', 'Jakarta', NULL, 2500);
+(2, 'agen', '12345', 'Agen Jakarta', 2, '085163192012', 'Jakarta', 'Laki-laki', 2500);
 
 -- --------------------------------------------------------
 
@@ -332,13 +367,13 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `tagihan`
 --
 ALTER TABLE `tagihan`
-  MODIFY `id_tagihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id_tagihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `tarif`
 --
 ALTER TABLE `tarif`
-  MODIFY `id_tarif` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tarif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
