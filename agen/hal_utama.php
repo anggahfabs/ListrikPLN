@@ -1,4 +1,4 @@
-<br> <br>
+
 <?php
 include '../config/koneksi.php';  // Menyertakan file koneksi ke database
 include '../library/fungsi.php'; // Menyertakan file berisi class/fungsi OOP yang digunakan untuk alert, caridata, dll
@@ -42,37 +42,31 @@ if (isset($_GET['logout'])) {
 	<title>Agen Listrik</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 	<style type="text/css">
-		html,
-		body {
+		html {
 			height: 100%;
-			margin: 0;
-			padding: 0;
 		}
 
 		body {
-			display: flex;
-			flex-direction: column;
-			min-height: 100vh;
+			min-height: 100%;
+			position: relative;
+			padding-top: 70px; /* Offset for fixed navbar */
+			padding-bottom: 80px; /* Space for footer */
+			margin: 0;
 		}
 
 		.wrapper {
-			flex: 1;
+			/* No specific flex styles needed */
 		}
-
-		/* .container {
-			flex: 1;
-			display: flex;
-			flex-direction: column;
-		} */
 
 		.footer {
 			background-color: #337ab7;
 			color: white;
-			padding: 2px 0;
+			padding: 10px 0;
 			text-align: center;
-			/* position: fixed; */
+			position: absolute;
 			bottom: 0;
 			width: 100%;
+			height: 60px;
 		}
 
 		.navbar-collapse {
@@ -187,7 +181,7 @@ if (isset($_GET['logout'])) {
 			?>
 		</div>
 	</div>
-<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+
 
 	<footer class="footer">
 		<p>

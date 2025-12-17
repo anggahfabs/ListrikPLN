@@ -1,4 +1,4 @@
-<br> <br> <br><br>
+
 <?php
 include '../config/koneksi.php';
 include '../library/fungsi.php';
@@ -30,34 +30,35 @@ if (isset($_GET['logout'])) {
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 	<!-- <link rel="stylesheet" href="../css/custom.css"> -->
 	<style>
-		html,
-		body {
+		html {
 			height: 100%;
-			margin: 0;
-			padding: 0;
 		}
 
 		body {
-			display: flex;
-			flex-direction: column;
-			min-height: 100vh;
+			min-height: 100%;
+			position: relative;
+			padding-top: 70px; /* Compensate for navbar-fixed-top */
+			padding-bottom: 80px; /* Space for footer */
+			margin: 0;
 		}
 
 		.wrapper {
-			flex: 1;
+			/* No specific flex styles needed here */
 		}
-		.container {
-  padding-bottom: 260px;
-}
 
+		.container {
+			padding-bottom: 20px;
+		}
 
 		.footer {
 			background-color: #337ab7;
 			color: white;
-			padding: 2px 0;
+			padding: 10px 0;
 			text-align: center;
-			bottom: 0;
 			width: 100%;
+			position: absolute;
+			bottom: 0;
+			height: 60px; /* Explicit height */
 		}
 	</style>
 

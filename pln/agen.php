@@ -93,15 +93,7 @@ if (isset($_GET['hapus'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-
-<head>
-	<title>Agen</title>
-</head>
-
-<body>
-	<div class="container-fluid">
+	<div class="container-fluid" style="margin-top: 20px;">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="col-md-4">
@@ -154,15 +146,14 @@ if (isset($_GET['hapus'])) {
 											<option value="Perempuan">Perempuan</option>
 										</select>
 									</div> -->
-									<br>
-									<div class="form-group">
+									<div class="form-group" style="margin-top: 20px;">
 										<?php
 										if (@$_GET['id'] == "") { ?>
-											<input type="submit" name="simpan" class="btn btn-primary btn-block btn-lg" value="SIMPAN" style="border-radius: 20px;">
+											<input type="submit" name="simpan" class="btn btn-primary btn-block btn-lg" value="SIMPAN">
 										<?php } else { ?>
 											<input type="submit" name="ubah" class="btn btn-success btn-block btn-lg" value="UBAH">
 										<?php } ?>
-										<a href="?menu=agen" class="btn btn-danger btn-lg btn-block" style="border-radius: 20px;">Reset</a>
+										<a href="?menu=agen" class="btn btn-danger btn-lg btn-block">Reset</a>
 									</div>
 								</form>
 							</div>
@@ -201,17 +192,18 @@ if (isset($_GET['hapus'])) {
 								<div class="table-responsive">
 									<table class="table table-bordered table-striped table-hover">
 										<thead>
-											<th>No.</th>
-											<th>ID Agen</th>
-											<th>Nama</th>
-											<th>No.Telepon</th>
-											<th>Alamat</th>
-											<th>Biaya<br>Admin</th>
-											<th>Username</th>
-											<th>Password</th>
-											<th>Akses</th>
-											<!-- <th>Jenis Kelamin</th> -->
-											<th colspan="2">Aksi</th>
+											<tr class="info">
+												<th>No.</th>
+												<th>ID Agen</th>
+												<th>Nama</th>
+												<th>No.Telepon</th>
+												<th>Alamat</th>
+												<th>Biaya Admin</th>
+												<th>Username</th>
+												<th>Password</th>
+												<th>Akses</th>
+												<th colspan="2">Aksi</th>
+											</tr>
 										</thead>
 										<tbody>
 											<?php
@@ -273,6 +265,4 @@ if (isset($_GET['hapus'])) {
 			</div>
 		</div>
 	</div>
-</body>
-
-</html>
+	</div>
