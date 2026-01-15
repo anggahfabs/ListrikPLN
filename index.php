@@ -24,11 +24,54 @@
     body {
       overflow: hidden;
       height: 100vh;
+      margin: 0;
+      padding: 0;
     }
 
-    .hero-content {
-      margin-top: -40px;
-      /* geser ke atas */
+    .hero-section-wrapper-1 {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .header {
+      flex-shrink: 0;
+      padding: 10px 0;
+    }
+
+    .hero-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding-top: 0 !important;
+      padding-bottom: 20px;
+    }
+
+    .hero-content-wrapper {
+      margin-top: 0 !important;
+    }
+
+    .hero-content-wrapper h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero-content-wrapper p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      max-height: 60vh;
+      object-fit: contain;
+    }
+
+    .navbar-area {
+      padding: 0;
     }
   </style>
 
@@ -51,7 +94,7 @@
       </div>
     </div>
   </div>
-  <section class="hero-section-wrapper-1 mb-100">
+  <section class="hero-section-wrapper-1">
     <!-- NAVBAR -->
     <header class="header header-4">
       <div class="navbar-area">
@@ -75,11 +118,11 @@
     </header>
     <!-- NAVBAR END -->
 
-    <div class="hero-section hero-style-1" style="padding-top: 40px;">
+    <div class="hero-section hero-style-1">
       <div class="container">
-        <div class="row">
+        <div class="row align-items-center">
           <div class="col-lg-6">
-            <div class="hero-content-wrapper" style="margin-top: -80px;">
+            <div class="hero-content-wrapper">
               <h2>Aplikasi Pembayaran Listrik</h2>
               <p>Kelola dan proses pembayaran listrik dengan lebih terorganisir menggunakan platform digital yang aman, cepat, dan mudah digunakan.</p>
               <div class="d-flex flex-wrap gap-3">
@@ -91,7 +134,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6 align-self-end">
+          <div class="col-lg-6 align-self-center">
             <div class="hero-image">
               <img src="images/awal.png" alt="">
             </div>
